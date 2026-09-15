@@ -190,8 +190,6 @@ function initAssistant() {
   const status = document.getElementById('assistantStatus');
   if (!form || !input || !messages) return;
 
-  const geminiApiKey = 'AQ.Ab8RN6KG9y4pcgZgIUUhBteaGr3q704j2K5DZmKwx0ztqEo-UA';
-  const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${geminiApiKey}`;
   const history = [];
   const addMessage = (text, sender) => {
     const row = document.createElement('div');
@@ -220,15 +218,11 @@ function initAssistant() {
       role: item.role,
       parts: [{ text: item.text }]
     }));
-    const response = await fetch(geminiUrl, {
+    const response = await fetch('https://mam-api.vercel.app/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        system_instruction: {
-          parts: [{ text: 'Bạn là Mầm, trợ lý AI của website Giáo dục môi trường. Hãy trả lời đúng câu hỏi người dùng bằng tiếng Việt, đi thẳng vào nội dung, không viết lời dẫn chung chung, không tự giới thiệu, không thêm lời kết sáo rỗng. Với câu hỏi cần hướng dẫn, hãy đưa 3 đến 5 việc làm cụ thể dưới dạng danh sách ngắn. Với lời chào, hãy chào lại ngắn gọn. Ưu tiên các chủ đề đất, nước, không khí, sinh vật, tái chế và bảo vệ môi trường. Nếu câu hỏi chưa rõ, hãy hỏi lại một câu cụ thể. Nếu ngoài chủ đề, hãy nói ngắn gọn rằng bạn chuyên hỗ trợ giáo dục môi trường.' }]
-        },
-        contents,
-        generationConfig: { temperature: 0.4, maxOutputTokens: 2048 }
+        contents
       })
     });
     const data = await response.json();
@@ -251,7 +245,7 @@ function initAssistant() {
       history.push({ role: 'model', text: answer });
       if (status) status.textContent = 'Mầm AI đang trực tuyến';
     } catch (error) {
-      addMessage(`${error.message} Hãy kiểm tra API key và kết nối mạng.`, 'bot');
+      addMessage(error.message, 'bot');
       if (status) status.textContent = 'Chưa kết nối được Mầm AI';
     } finally {
       input.disabled = false;
