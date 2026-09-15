@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Trợ lý AI | Giáo Dục Môi Trường</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-avatar"><img class="logo-image" src="image/mam2-transparent.png" alt="Logo Mầm"/></div>
+    <div class="sidebar-header-text"><h3>Giáo dục môi trường</h3></div>
+    <button class="sidebar-close" id="sidebarClose" type="button">✕</button>
+  </div>
+  <div class="sidebar-menu">
+    <a href="index.html" class="sidebar-item"><div class="si-icon">🏠</div><span class="si-text">Trang chủ</span></a>
+    <a href="dat.html" class="sidebar-item"><div class="si-icon">🌱</div><span class="si-text">Môi trường đất</span></a>
+    <a href="nuoc.html" class="sidebar-item"><div class="si-icon">💧</div><span class="si-text">Môi trường nước</span></a>
+    <a href="khongkhi.html" class="sidebar-item"><div class="si-icon">💨</div><span class="si-text">Môi trường không khí</span></a>
+    <a href="sinhvat.html" class="sidebar-item"><div class="si-icon">🦋</div><span class="si-text">Môi trường sinh vật</span></a>
+    <a href="thuvien.html" class="sidebar-item"><div class="si-icon">📷</div><span class="si-text">Thư viện ảnh</span></a>
+    <a href="baihat.html" class="sidebar-item"><div class="si-icon">🎵</div><span class="si-text">Bài hát</span></a>
+    <a href="phanhoi.html" class="sidebar-item"><div class="si-icon">📝</div><span class="si-text">Phiếu phản hồi</span></a>
+    <a href="troly.html" class="sidebar-item active"><div class="si-icon"><img class="mini-mam-icon" src="image/mam2-transparent.png" alt="Mầm" /></div><span class="si-text">Trợ lý AI</span></a>
+    <button type="button" class="sidebar-item sidebar-logout" id="logoutBtn"><div class="si-icon">🚪</div><span class="si-text">Đăng xuất</span></button>
+  </div>
+  <div class="sidebar-footer">Trường Đại học Hải Phòng</div>
+</div>
+
+<div class="app assistant-app">
+  <div class="topbar">
+    <div class="topbar-left">
+      <button class="btn-icon" id="menuBtn" aria-label="Mở menu">☰</button>
+    </div>
+    <div class="topbar-center"><img class="topbar-logo" src="image/mam2-transparent.png" alt="Logo"/> Trợ lý AI</div>
+    <div class="topbar-right"></div>
+  </div>
+
+  <main class="assistant-page">
+    <section class="assistant-heading">
+      <div class="assistant-heading-icon"><img src="image/mam2-transparent.png" alt="Logo Mầm" /></div>
+      <div>
+        <p class="assistant-eyebrow">Mầm đồng hành</p>
+        <h1>Hỏi Mầm về môi trường</h1>
+        <p class="assistant-description">Mình có thể giải thích những điều thú vị về đất, nước, không khí và các loài sinh vật.</p>
+      </div>
+    </section>
+
+    <section class="assistant-chat" aria-label="Trò chuyện với trợ lý AI">
+      <div class="assistant-messages" id="assistantMessages" aria-live="polite">
+        <div class="assistant-message assistant-message-bot">
+          <div class="assistant-avatar"><img src="image/mam2-transparent.png" alt="Mầm" /></div>
+          <div class="assistant-bubble">Xin chào! Mình là Mầm. Bạn muốn tìm hiểu điều gì về môi trường hôm nay?</div>
+        </div>
+      </div>
+      <div class="assistant-suggestions" id="assistantSuggestions">
+        <button type="button" data-question="Vì sao chúng ta cần bảo vệ môi trường?">Vì sao cần bảo vệ môi trường?</button>
+        <button type="button" data-question="Làm thế nào để tiết kiệm nước?">Làm thế nào để tiết kiệm nước?</button>
+        <button type="button" data-question="Cây xanh giúp ích gì cho không khí?">Cây xanh giúp ích gì?</button>
+      </div>
+      <form class="assistant-form" id="assistantForm">
+        <label class="sr-only" for="assistantInput">Nhập câu hỏi</label>
+        <textarea id="assistantInput" rows="1" placeholder="Nhập câu hỏi của bạn..." autocomplete="off"></textarea>
+        <button type="submit" aria-label="Gửi câu hỏi">➤</button>
+      </form>
+      <div class="assistant-note" id="assistantStatus">Mầm AI đang trực tuyến</div>
+    </section>
+  </main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

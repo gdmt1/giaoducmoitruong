@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Thư Viện Ảnh | Giáo Dục Môi Trường</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div class="lightbox" id="lightbox"><button class="lb-close" id="lbClose">✕</button><img src="" alt="" id="lbImg"/></div>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-avatar"><img class="logo-image" src="image/mam2-transparent.png" alt="Logo Mầm"/></div>
+    <div class="sidebar-header-text"><h3>Giáo dục môi trường</h3></div>
+    <button class="sidebar-close" id="sidebarClose">✕</button>
+  </div>
+  <div class="sidebar-menu">
+    <a href="index.html" class="sidebar-item"><div class="si-icon">🏠</div><span class="si-text">Trang chủ</span></a>
+    <a href="dat.html" class="sidebar-item"><div class="si-icon">🌱</div><span class="si-text">Môi trường đất</span></a>
+    <a href="nuoc.html" class="sidebar-item"><div class="si-icon">💧</div><span class="si-text">Môi trường nước</span></a>
+    <a href="khongkhi.html" class="sidebar-item"><div class="si-icon">💨</div><span class="si-text">Môi trường không khí</span></a>
+    <a href="sinhvat.html" class="sidebar-item"><div class="si-icon">🦋</div><span class="si-text">Môi trường sinh vật</span></a>
+    <a href="thuvien.html" class="sidebar-item active"><div class="si-icon">📷</div><span class="si-text">Thư viện ảnh</span></a>
+    <a href="baihat.html" class="sidebar-item"><div class="si-icon">🎵</div><span class="si-text">Bài hát</span></a>
+    <a href="phanhoi.html" class="sidebar-item"><div class="si-icon">📝</div><span class="si-text">Phiếu phản hồi</span></a>
+    <button type="button" class="sidebar-item sidebar-logout" id="logoutBtn"><div class="si-icon">🚪</div><span class="si-text">Đăng xuất</span></button>
+  </div>
+  <div class="sidebar-footer">Trường Đại học Hải Phòng</div>
+</div>
+
+<div class="app">
+  <div class="topbar">
+    <div class="topbar-left">
+      <button class="btn-icon" id="menuBtn">☰</button>
+      <a href="#" class="topbar-back" onclick="goBackToPreviousPage(); return false;">Quay lại</a>
+    </div>
+    <div class="topbar-center">📷 Thư Viện Ảnh</div>
+    <div class="topbar-right"></div>
+  </div>
+
+  <div class="page">
+    <div style="padding:16px 16px 8px;">
+      <p class="greeting">Hình ảnh giáo dục môi trường</p>
+      <h2 style="font-size:20px;font-weight:900;color:var(--brown);">Thư viện ảnh 📷</h2>
+    </div>
+    <div class="gallery-grid" id="localGallery"></div>
+    <script>
+      const legacyGalleryFiles = [
+        '1.png',
+        '2.png',
+        'A boy playing with a robot made from cardboard boxes, imagination and recycling.jpg',
+        'A child scattering seeds for small birds in a park, kindness to animals, simple 2D drawing.jpg',
+        'a girl using a cute watering can to water colorful flowers, butterflies flying around, 2D art.jpg',
+        'A little boy digging a small hole and planting a sapling, garden setting, cheerful atmosphere..jpg',
+        'bé gái 1.jfif',
+        'bé gái tưới cây.jfif',
+        'bé gái.jfif',
+        'bạn nhỏ tưới cây.jfif',
+        'Cartoon illustration of children riding bicycles on a road with many green trees, no vehicle smoke, fresh clean air, cute style, cheerful and happy atmosphere, bright colors, simple drawing.jpg',
+        'ChatGPT Image 22_42_11 3 thg 5, 2026.png',
+        'chăm sóc cây.jfif',
+        'Cute 2D cartoon illustration for kids. A cute child reaching up on their tiptoes to turn off the light switch before leaving a cozy bedroom. A happy glowing lightbulb character is waving goodbye. Warm, .jpg',
+        'Cute 2D cartoon illustration for kids. A cute child reaching up on their tiptoes to turn off the light switch before leaving a cozy bedroom. A happy glowing lightbulb character is waving goodbye. Warm, brig.jpg',
+        'Cute 2D cartoon illustration. A cute child wearing gloves, using a small tool to pick up a candy wrapper from the green grass in a park, putting it into a small trash bag. Smiling flowers around. Bright col.jpg',
+        'Cute 2D illustration, a kid flattening an empty milk carton and putting it into a recycling box, colorful milk boxes, happy atmosphere, simple flat vector, educational..jpg',
+        'Các bạn nhỏ trồng cây, nét vẽ hoạt hình đáng yêu, trẻ em vui vẻ đang chăm sóc cây xanh.jpg',
+        'Các bạn nhỏ vứt rác vào thùng rác, trẻ em đang bỏ rác đúng nơi quy định, nét vẽ hoạt hình đáng yêu (1).jpg',
+        'Cây cối đâm chồi nảy lộc, những cành non xanh mướt và nhiều bông hoa đang nở rộ, khung cảnh thiên nhiên tươi sáng, tràn đầy sức sống và cảm giác mùa xuân.jpg',
+        'dòng sông.jfif',
+        'Gemini_Generated_Image_4e06od4e06od4e06.png',
+        'Gemini_Generated_Image_8qiwtm8qiwtm8qiw.png',
+        'Gemini_Generated_Image_fdxlpnfdxlpnfdxl.png',
+        'Gemini_Generated_Image_igr2nyigr2nyigr2.png',
+        'Gemini_Generated_Image_raydriraydrirayd.png',
+        'Gemini_Generated_Image_wet1zxwet1zxwet1.png',
+        'giáo dục môi trường cho trẻ.png',
+        'Hoạt hình một bạn nhỏ đang tắt vòi nước sau khi rửa tay, nước không chảy lãng phí, khuôn mặt vui, phong cách hoạt hình dễ thương.jpg',
+        'Hình ảnh hoạt hình rõ nét về đất bị ô nhiễm trong rừng, phù hợp cho trẻ em, với rác thải chai nhựa túi nilon lon nước ngọt nằm trên nền đất rừng, cây cối xung quanh, nét vẽ sắc nét rõ ràng, màu sắc tươi sáng, phong.jpg',
+        'Hình ảnh hoạt hình về ô nhiễm không khí dễ hiểu cho trẻ em, với nhà máy xả khói đen, xe cộ thải khói, bầu trời xám xịt, mặt trời buồn bã, cây cối héo úa, phong cách minh họa hoạt hình đơn giản và thân thiện.jpg',
+        'Hình ảnh hoạt hình về ô nhiễm nguồn nước, sông hồ bị ô nhiễm với rác thải, chai nhựa, túi nilon nổi trên mặt nước, nước màu đen xám bẩn, cá chết, nhà máy xả nước thải, phong cách minh họa hoạt hình đơn giản và  (1).jpg',
+        'Hình ảnh hoạt hình về ô nhiễm nguồn nước, sông hồ bị ô nhiễm với rác thải, chai nhựa, túi nilon nổi trên mặt nước, nước màu đen xám bẩn, cá chết, nhà máy xả nước thải, phong cách minh họa hoạt hình đơn giản và dễ h.jpg',
+        'hồ nước.jfif',
+        'Khung cảnh mùa thu thơ mộng với những hàng cây lá vàng, rất nhiều chiếc lá vàng cam đang nhẹ nhàng rơi trong gió, lối đi phủ đầy lá, ánh nắng dịu xuyên qua tán cây, không khí yên bình và lãng mạn.jpg',
+        'Khung cảnh ngoài biển vào một ngày nắng nóng, bầu trời xanh trong, mặt trời rực rỡ, biển xanh lấp lánh, bãi cát vàng sáng, sóng nhẹ vỗ bờ, cảm giác mùa hè oi nóng và tràn đầy năng lượng.jpg',
+        'Kids cartoon style, a cute child putting a banana peel in a green bin and a plastic bag in a blue bin, bright colors, simple flat vector, clean white background, educational..jpg',
+        'magic_edit#TUFIVTM0OFh5WjgjMSNmYzM0NGZhNzM3OTc0NDFhZDM3MTFhM2Y4ZTY5MTgzZSMxNjgwIyNUUkFOU0ZPUk1BVElPTl9SRVFVRVNU.jpg',
+        'magic_edit#TUFIVTN5Nmt4VGsjMSM1MDIzNDQ1ZTNhNjlkYzBlZTQ3NGVmZGQ5ZTJlNmQ3YiMxMDI0IyNUUkFOU0ZPUk1BVElPTl9SRVFVRVNU.jpg',
+        'magic_edit#TUFIVTN6VG9wQ1kjMSM0OWZiMWUxYTAxN2Y5MzU5N2ZiOWZhNWQwOTdjMzJlZiMxNjgwIyNUUkFOU0ZPUk1BVElPTl9SRVFVRVNU.jpg',
+        'magic_edit#TUFIVWVwbFh0NjQjMSM2NTU1YjIzZWJhNDJjMTEwM2JjM2Y5NzBhMDQ2NzVjNiMxMjY0IyNUUkFOU0ZPUk1BVElPTl9SRVFVRVNU.jpg',
+        'Minh họa hoạt hình 3D đáng yêu về một bạn nhỏ đang bẻ một cành cây trong công viên, biểu cảm tinh nghịch nhưng không nguy hiểm, phong cách hoạt hình điện ảnh, màu sắc tươi sáng, ánh sáng mềm, cây xanh và khung cảnh.jpg',
+        'Minh họa hoạt hình đáng yêu về một con phố mùa đông lạnh giá, nhiều người đi đường đeo khăn quàng cổ và mặc áo bông dày, đội mũ len, hơi thở hiện thành làn khói trắng, cây trơ cành, vài bông tuyết nhẹ, cửa hàng và .jpg',
+        'mt đất.jpg',
+        'môi trường.jfif',
+        'Mặt trời đang chiếu sáng rực rỡ, tỏa ra những tia nắng mạnh và cảm giác nóng bỏng, hình ảnh sạch sẽ với nền trắng tinh khiết.jpg',
+        'Một chiếc mũ chống nắng dành cho trẻ em, vành rộng che nắng, chất liệu vải nhẹ và thoáng, kiểu dáng đáng yêu, màu pastel nhẹ, có dây quai giữ mũ, chụp như ảnh sản phẩm, không có người mẫu, nền trắng tinh khiết, ánh.jpg',
+        'Một chiếc vali đứng ngay giữa khung hình, nổi bật và rõ ràng, phía sau là cảnh trời đang mưa rất to với những hạt mưa lớn, mây xám, vũng nước và tia chớp nhẹ ở xa; nét vẽ hoạt hình vui tươi, màu sắc sinh động, hình.jpg',
+        'Một chiếc áo bông phao dành cho trẻ em, kiểu dáng ấm áp và đáng yêu, áo tay dài phồng nhẹ, có cổ cao và khóa kéo phía trước, chất liệu chần bông mềm, màu pastel nhẹ, chụp như ảnh sản phẩm không có người mẫu, nền tr.jpg',
+        'Một chiếc áo mưa hoàn chỉnh đặt chính giữa khung hình trên nền trắng tinh khiết, nhìn rõ toàn bộ sản phẩm, kiểu dáng đơn giản, màu sắc tươi sáng, chất liệu áo mưa dễ nhận biết, ánh sáng mềm, hình ảnh sạch sẽ, không.jpg',
+        'Một chiếc áo ngắn tay dành cho trẻ em, kiểu dáng thoải mái và mát mẻ, chất liệu nhẹ phù hợp mặc khi trời nắng, trình bày rõ ràng như ảnh sản phẩm, nền trắng tinh khiết, ánh sáng mềm, không có người mẫu.jpg',
+        'Một chiếc ô hoàn chỉnh đặt chính giữa khung hình trên nền trắng tinh khiết, nhìn rõ toàn bộ chiếc ô, tay cầm và cán ô, kiểu dáng đơn giản, màu sắc tươi sáng, ánh sáng mềm, hình ảnh sạch sẽ, không có người, không có.jpg',
+        'nhặt rác.jfif',
+        'Small kids picking up plastic on a sandy beach, blue ocean background, environmental protection theme.jpg',
+        'tiết kiệm nước.jfif',
+        'trả lời.jfif',
+        'Trẻ em hoạt hình đang với tay tắt công tắc đèn trước khi ra khỏi phòng, ánh sáng dịu, nét vẽ đơn giản, màu sắc tươi.jpg',
+        'Trẻ em hoạt hình đứng gần hồ nước trong sạch, không vứt rác, cá bơi lội vui vẻ, môi trường sạch đẹp, màu sắc sinh động.jpg',
+        'Trời lạnh không tuyết (1).png',
+        'Trời lạnh không tuyết (2).png',
+        'Trời lạnh không tuyết.png',
+        'tưới cây.jfif',
+        'uống nước.jfif',
+        'z7787479861391_bcf7e7e42dc1aa5242f166c87cacc228.jpg',
+        'z7787479861709_ca718aac35c3c9f09b7e9c417d4db662.jpg',
+        'z7787479863650_029ffb91629af12c4d34adaa0583f827.jpg',
+        'z7787479865839_d7e134c9719ec265809647804a65d6cb.jpg'
+      ];
+      const galleryFiles = ['img001.jpg', 'img002.png', 'img003.png', 'img004.jpg', 'img005.jpg', 'img006.jpg', 'img007.jpg', 'img008.jfif', 'img009.jfif', 'img010.jfif', 'img011.jfif', 'img012.jpg', 'img013.jpg', 'img014.jpg', 'img015.jpg', 'img016.jfif', 'img017.png', 'img018.jpg', 'img019.jfif', 'img020.jfif', 'img021.png', 'img022.png', 'img023.png', 'img024.png', 'img025.png', 'img026.png', 'img027.png', 'img028.jfif', 'img029.jpg', 'img030.jpg', 'img031.jpg', 'img032.jpg', 'img033.jpg', 'img034.jpg', 'img035.jpg', 'img036.jpg', 'img037.jpg', 'img038.jfif', 'img039.jpg', 'img040.jfif', 'img041.jpg', 'img042.jfif', 'img043.jfif', 'img044.jpg', 'img045.jpg', 'img046.png', 'img047.png', 'img048.png', 'img049.jfif', 'img050.jfif', 'img051.jpg', 'img052.jpg', 'img053.jpg', 'img054.jpg', 'img055.jpg', 'img056.jpg', 'img057.jpg', 'img058.jpg', 'img059.jpg', 'img060.jpg', 'img061.jpg', 'img062.jpg', 'img063.jpg', 'img064.jpg', 'img065.jpg', 'img066.jpg', 'img067.jpg', 'img068.jpg', 'img069.jpg', 'img070.jpg', 'img071.jpg', 'img072.jpg', 'img073.jpg', 'img074.jpg', 'img075.jpg', 'img076.jpg'];
+      const gallery = document.getElementById('localGallery');
+      galleryFiles.forEach(file => {
+        const image = document.createElement('img');
+        image.src = `image/a/${encodeURIComponent(file)}`;
+        image.alt = file.replace(/\.[^.]+$/, '');
+        image.loading = 'lazy';
+        image.addEventListener('error', () => image.remove());
+        gallery.appendChild(image);
+      });
+    </script>
+    <div style="height:8px;"></div>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-item" data-page="index.html"><span class="nav-icon">🏠</span><span>Trang chủ</span></a>
+    <a href="dat.html" class="nav-item" data-page="dat.html"><span class="nav-icon">📖</span><span>Học</span></a>
+    <div class="nav-item-center" onclick="location.href='troly.html'"><div class="nav-center-circle"><img class="logo-image" src="image/mam2-transparent.png" alt="Logo Mầm"/></div><span>Trợ lý AI</span></div>
+    <a href="trochoi.html" class="nav-item" data-page="trochoi.html"><span class="nav-icon">🧩</span><span>Trò chơi</span></a>
+    <a href="thuvien.html" class="nav-item" data-page="thuvien.html"><span class="nav-icon">📷</span><span>Thư viện</span></a>
+  </nav>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

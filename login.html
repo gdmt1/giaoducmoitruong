@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Đăng nhập | Giáo Dục Môi Trường</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div class="app">
+  <div class="login-page">
+    <video id="loginIntroVideo" class="login-intro-video" src="video/mam1.mp4" autoplay preload="auto" playsinline></video>
+    <h1 class="login-title">Giáo Dục Môi Trường</h1>
+    <p class="login-sub">Học và khám phá thiên nhiên cùng trẻ mầm non</p>
+    <div class="login-form">
+      <input id="nameInput" class="login-input" type="text" placeholder="Nhập tên của bạn..." maxlength="30" autocomplete="off"/>
+      <button class="btn-login" onclick="doLogin()">Bắt đầu ngay</button>
+      <div class="login-divider"><span>hoặc đăng nhập bằng</span></div>
+      <div class="login-social">
+        <button class="social-btn" type="button" disabled aria-disabled="true">🔒 Facebook</button>
+        <button class="social-btn" type="button" disabled aria-disabled="true">🔒 Google</button>
+      </div>
+    </div>
+    <p class="login-skip" onclick="skipLogin()">Tiếp tục không cần đăng nhập</p>
+  </div>
+</div>
+<script>
+const loginIntroVideo = document.getElementById('loginIntroVideo');
+function playLoginIntroWithSound() {
+  loginIntroVideo.muted = false;
+  loginIntroVideo.volume = 1;
+  loginIntroVideo.play().catch(() => {
+    loginIntroVideo.pause();
+  });
+}
+playLoginIntroWithSound();
+document.addEventListener('pointerdown', playLoginIntroWithSound, { once: true });
+document.addEventListener('keydown', playLoginIntroWithSound, { once: true });
+
+function doLogin() {
+  const val = document.getElementById('nameInput').value.trim();
+  if (!val) { document.getElementById('nameInput').focus(); return; }
+  localStorage.setItem('userName', val);
+  const requestedPage = new URLSearchParams(location.search).get('return');
+  const returnPage = requestedPage === 'phanhoi.html' ? 'phanhoi.html' : 'index.html';
+  location.href = returnPage;
+}
+function skipLogin() {
+  localStorage.removeItem('userName');
+  localStorage.removeItem('feedbackEmail');
+  location.href = 'index.html';
+}
+document.getElementById('nameInput').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+</script>
+</body>
+</html>

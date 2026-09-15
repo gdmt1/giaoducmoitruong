@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Môi Trường Nước | Giáo Dục Môi Trường</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div class="lightbox" id="lightbox"><button class="lb-close" id="lbClose">✕</button><img src="" alt="" id="lbImg"/></div>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-avatar"><img class="logo-image" src="image/mam2-transparent.png" alt="Logo Mầm"/></div>
+    <div class="sidebar-header-text"><h3>Giáo dục môi trường</h3></div>
+    <button class="sidebar-close" id="sidebarClose">✕</button>
+  </div>
+  <div class="sidebar-menu">
+    <a href="index.html" class="sidebar-item"><div class="si-icon">🏠</div><span class="si-text">Trang chủ</span></a>
+    <a href="dat.html" class="sidebar-item"><div class="si-icon">🌱</div><span class="si-text">Môi trường đất</span></a>
+    <a href="nuoc.html" class="sidebar-item active"><div class="si-icon">💧</div><span class="si-text">Môi trường nước</span></a>
+    <a href="khongkhi.html" class="sidebar-item"><div class="si-icon">💨</div><span class="si-text">Môi trường không khí</span></a>
+    <a href="sinhvat.html" class="sidebar-item"><div class="si-icon">🦋</div><span class="si-text">Môi trường sinh vật</span></a>
+    <a href="thuvien.html" class="sidebar-item"><div class="si-icon">📷</div><span class="si-text">Thư viện ảnh</span></a>
+    <a href="baihat.html" class="sidebar-item"><div class="si-icon">🎵</div><span class="si-text">Bài hát</span></a>
+    <a href="phanhoi.html" class="sidebar-item"><div class="si-icon">📝</div><span class="si-text">Phiếu phản hồi</span></a>
+    <button type="button" class="sidebar-item sidebar-logout" id="logoutBtn"><div class="si-icon">🚪</div><span class="si-text">Đăng xuất</span></button>
+  </div>
+  <div class="sidebar-footer">Trường Đại học Hải Phòng</div>
+</div>
+
+<div class="app">
+  <div class="topbar">
+    <div class="topbar-left">
+      <button class="btn-icon" id="menuBtn">☰</button>
+      <a href="#" class="topbar-back" onclick="goBackToPreviousPage(); return false;">Quay lại</a>
+    </div>
+    <div class="topbar-center"></div>
+    <div class="topbar-right"></div>
+  </div>
+
+  <div class="page">
+    <div class="subhero">
+      <img src="image/nuoc.jpg" alt="Môi trường nước"/>
+      <div class="subhero-overlay"></div>
+      <div class="subhero-content">
+        <span class="subhero-chip">Chủ đề 02</span>
+        <h1 class="subhero-title">💧 Môi Trường Nước</h1>
+      </div>
+    </div>
+
+    <div style="padding:16px 16px 8px;">
+      <p style="font-size:13px;color:var(--brown-mid);line-height:1.65;">Nước — nguồn sống của hành tinh. Giáo dục trẻ về tầm quan trọng của việc bảo vệ nguồn nước sạch và hệ sinh thái thủy sinh.</p>
+    </div>
+
+    <div class="px16 mt16 mb8"><p class="section-label">🧩 Trò chơi tương tác</p></div>
+    <div class="game-list">
+
+      <div class="game-card">
+        <div class="game-icon-box">💧</div>
+        <div class="game-info"><h4>Nhận biết nguồn nước</h4><p>Nhận biết các nguồn nước trong tự nhiên và cuộc sống.</p></div>
+        <a href="https://wordwall.net/resource/109951551" target="_blank" rel="noopener" class="game-btn-go">Chơi</a>
+      </div>
+
+      <div class="game-card">
+        <div class="game-icon-box">🚿</div>
+        <div class="game-info"><h4>Phân loại nước sạch – nước bẩn</h4><p>Phân biệt nước sạch và nước bẩn qua Kahoot.</p></div>
+        <a href="https://create.kahoot.it/details/241b687d-dbff-47c0-9975-cabd9f99bb58" target="_blank" rel="noopener" class="game-btn-go">Chơi</a>
+      </div>
+
+      <div class="game-card">
+        <div class="game-icon-box">🚰</div>
+        <div class="game-info"><h4>Bé tiết kiệm nước</h4><p>Học cách tiết kiệm nước trong sinh hoạt hàng ngày.</p></div>
+        <a href="https://giaoviendoimoi.com/teacher-share/t626e8pvhzafztjk3boerg" target="_blank" rel="noopener" class="game-btn-go">Chơi</a>
+      </div>
+
+      <div class="game-card">
+        <div class="game-icon-box">🔗</div>
+        <div class="game-info"><h4>Ghép đôi sạch – bẩn</h4><p>Liên kết hình ảnh với khái niệm sạch và bẩn.</p></div>
+        <a href="https://view.genially.com/69f4856e811e639728fd50b6" target="_blank" rel="noopener" class="game-btn-go">Chơi</a>
+      </div>
+
+      <div class="game-card">
+        <div class="game-icon-box">🌊</div>
+        <div class="game-info"><h4>Giọt nước sạch</h4><p>Hành trình của giọt nước qua trò chơi Kahoot.</p></div>
+        <a href="https://create.kahoot.it/share/giot-nuoc-sach/eba9bb31-8ad4-4972-9039-dda0dcd73c2f" target="_blank" rel="noopener" class="game-btn-go">Chơi</a>
+      </div>
+
+      <div class="game-card">
+        <div class="game-icon-box">🌿</div>
+        <div class="game-info"><h4>Giải cứu dòng sông xanh</h4><p>Tham gia nhiệm vụ bảo vệ dòng sông và giữ nguồn nước sạch.</p></div>
+        <a href="https://giaoviendoimoi.com/teacher-share/4imvtlmi3ad3o9kfuv9hl" target="_blank" rel="noopener" class="game-btn-go">Chơi</a>
+      </div>
+
+    </div>
+
+    <!-- VIDEO -->
+    <div class="px16 mt20 mb8"><p class="section-label"><span class="label-icon">📺</span><span>Video học tập</span></p></div>
+    <div class="video-list">
+      <div class="video-card"><div class="video-thumb"><video src="video/n/Bảo vệ nguồn nước(N).mp4" controls preload="metadata"></video></div><div class="video-info"><span class="vi-icon">💧</span><span class="vi-text">Bảo vệ nguồn nước</span></div></div>
+      <div class="video-card"><div class="video-thumb"><video src="video/n/Bảo Vệ Nguồn Nước(N)1.mp4" controls preload="metadata"></video></div><div class="video-info"><span class="vi-icon">💧</span><span class="vi-text">Bảo vệ nguồn nước</span></div></div>
+      <div class="video-card"><div class="video-thumb"><video src="video/n/Nhà Khoa Học Nhí Thử Nước(N).mp4" controls preload="metadata"></video></div><div class="video-info"><span class="vi-icon">💧</span><span class="vi-text">Nhà khoa học nhí thử nước</span></div></div>
+      <div class="video-card"><div class="video-thumb"><video src="video/n/bé bảo vệ nước.mp4" controls preload="metadata"></video></div><div class="video-info"><span class="vi-icon">💧</span><span class="vi-text">Bé bảo vệ nước</span></div></div>
+      <div class="video-card"><div class="video-thumb"><video src="video/n/Bảo vệ nguồn nước quanh em.mp4" controls preload="metadata"></video></div><div class="video-info"><span class="vi-icon">💧</span><span class="vi-text">Bảo vệ nguồn nước quanh em</span></div></div>
+      <div class="video-card"><div class="video-thumb"><video src="video/n/hành động nào giúp bảo vệ nước.mp4" controls preload="metadata"></video></div><div class="video-info"><span class="vi-icon">💧</span><span class="vi-text">Hành động nào giúp bảo vệ nước?</span></div></div>
+    </div>
+
+    <div style="margin:16px;display:flex;justify-content:space-between;gap:10px;">
+      <a href="dat.html"       style="flex:1;text-align:center;padding:12px;background:var(--white);border:1.5px solid var(--border);border-radius:100px;font-size:13px;font-weight:700;color:var(--brown-mid);text-decoration:none;">Môi trường đất</a>
+      <a href="khongkhi.html"  style="flex:1;text-align:center;padding:12px;background:var(--gold);border-radius:100px;font-size:13px;font-weight:700;color:#fff;text-decoration:none;">Không khí</a>
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-item" data-page="index.html"><span class="nav-icon">🏠</span><span>Trang chủ</span></a>
+    <a href="dat.html" class="nav-item" data-page="dat.html"><span class="nav-icon">📖</span><span>Học</span></a>
+    <div class="nav-item-center" onclick="location.href='troly.html'"><div class="nav-center-circle"><img class="logo-image" src="image/mam2-transparent.png" alt="Logo Mầm"/></div><span>Trợ lý AI</span></div>
+    <a href="trochoi.html" class="nav-item" data-page="trochoi.html"><span class="nav-icon">🧩</span><span>Trò chơi</span></a>
+    <a href="thuvien.html" class="nav-item" data-page="thuvien.html"><span class="nav-icon">📷</span><span>Thư viện</span></a>
+  </nav>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

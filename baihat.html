@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Bài hát | Giáo Dục Môi Trường</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-avatar"><img class="logo-image" src="image/mam2-transparent.png" alt="Logo Mầm"/></div>
+      <div class="sidebar-header-text"><h3>Giáo dục môi trường</h3></div>
+      <button class="sidebar-close" id="sidebarClose" aria-label="Đóng menu">✕</button>
+    </div>
+    <div class="sidebar-menu">
+      <a href="index.html" class="sidebar-item"><div class="si-icon">🏠</div><span class="si-text">Trang chủ</span></a>
+      <a href="dat.html" class="sidebar-item"><div class="si-icon">🌱</div><span class="si-text">Môi trường đất</span></a>
+      <a href="nuoc.html" class="sidebar-item"><div class="si-icon">💧</div><span class="si-text">Môi trường nước</span></a>
+      <a href="khongkhi.html" class="sidebar-item"><div class="si-icon">💨</div><span class="si-text">Môi trường không khí</span></a>
+      <a href="sinhvat.html" class="sidebar-item"><div class="si-icon">🦋</div><span class="si-text">Môi trường sinh vật</span></a>
+      <a href="thuvien.html" class="sidebar-item"><div class="si-icon">📷</div><span class="si-text">Thư viện ảnh</span></a>
+      <a href="baihat.html" class="sidebar-item active"><div class="si-icon">🎵</div><span class="si-text">Bài hát</span></a>
+      <a href="phanhoi.html" class="sidebar-item"><div class="si-icon">📝</div><span class="si-text">Phiếu phản hồi</span></a>
+      <button type="button" class="sidebar-item sidebar-logout" id="logoutBtn"><div class="si-icon">🚪</div><span class="si-text">Đăng xuất</span></button>
+    </div>
+    <div class="sidebar-footer">Trường Đại học Hải Phòng</div>
+  </div>
+
+  <div class="app">
+    <div class="topbar">
+      <div class="topbar-left">
+        <button class="btn-icon" id="menuBtn" aria-label="Mở menu">☰</button>
+        <a href="#" class="topbar-back" onclick="goBackToPreviousPage(); return false;">Quay lại</a>
+      </div>
+      <div class="topbar-center"><img class="topbar-logo" src="image/mam2-transparent.png" alt="Logo"/> Bài hát</div>
+      <div class="topbar-right"></div>
+    </div>
+
+    <div class="page">
+      <div style="padding:20px 16px 10px;">
+        <p class="greeting">Âm nhạc và môi trường</p>
+        <h1 style="font-size:24px;font-weight:900;color:var(--brown);line-height:1.25;">🎵 Bài hát</h1>
+        <p style="margin-top:8px;color:var(--brown-mid);font-size:13px;line-height:1.65;">Cùng hát và lan tỏa tình yêu thiên nhiên, môi trường.</p>
+      </div>
+
+      <div class="song-groups">
+        <section class="song-group">
+          <article class="song-card"><div><h3>Em yêu cây xanh</h3><p>Giáo dục trẻ yêu quý, chăm sóc và bảo vệ cây.</p></div><audio controls preload="none" src="https://www.image2url.com/r2/default/audio/1789291009661-166e8af4-84b2-43ab-ab00-18cf4b118a42.mp3"></audio></article>
+          <article class="song-card"><div><h3>Lý cây xanh</h3><p>Giúp trẻ làm quen với cây cối, thiên nhiên.</p></div><audio controls preload="none" src="https://www.image2url.com/r2/default/audio/1789292322183-dab2ed7c-8b54-4dac-bc08-52e88cd2ef06.mp3"></audio></article>
+          <article class="song-card"><div><h3>Trồng cây</h3><p>Khuyến khích trẻ tham gia trồng và chăm sóc cây.</p></div><audio controls preload="none" src="https://www.image2url.com/r2/default/audio/1789292373548-c22bb154-8088-47e2-a9ad-26e8ce090e95.mp3"></audio></article>
+          <article class="song-card"><div><h3>Em chăm cây xanh</h3><p>Giáo dục lợi ích của cây xanh đối với môi trường.</p></div><audio controls preload="none" src="https://www.image2url.com/r2/default/audio/1789292522632-963ae65b-29bd-4102-84a4-ab3e9f00e9a0.mp3"></audio></article>
+        
+          <article class="song-card"><div><h3>Cho tôi đi làm mưa với</h3><p>Khai thác chủ đề nước và hiện tượng tự nhiên.</p></div><audio controls preload="none" src="https://www.image2url.com/r2/default/audio/1789297105534-4872e078-1d97-4777-8da6-41fdc09db94c.mp3"></audio></article>
+          <article class="song-card"><div><h3>Giữ nước xanh sạch đẹp</h3></div><audio controls preload="none" src="https://www.image2url.com/r2/default/audio/1789297348599-82c9005a-62c1-479b-b5e0-794e01bf5ed9.mp3"></audio></article>
+        
+          <article class="song-card"><div><h3>Không xả rác</h3><p>Giáo dục trẻ bỏ rác đúng nơi quy định.</p></div><audio controls preload="none" src="https://www.image2url.com/r2/default/audio/1789297458013-febe6334-929b-418b-a9b7-3083412c117d.mp3"></audio></article>
+          <article class="song-card"><div><h3>Bé giữ vệ sinh môi trường</h3><p>Phù hợp cho hoạt động giáo dục thói quen.</p></div><audio controls preload="none" src="https://www.image2url.com/r2/default/audio/1789297548730-37fe790a-d2a6-4a0c-a500-a4c80c5177d0.mp3"></audio></article>
+        
+          <article class="song-card"><div><h3>Bé yêu môi trường</h3><p>Cùng trẻ hình thành tình yêu và ý thức bảo vệ môi trường.</p></div><audio controls preload="none" src="https://www.image2url.com/r2/default/audio/1789377347812-4d139302-18d9-42ff-b3a8-104efa1aeb05.mp3"></audio></article>
+          <article class="song-card"><div><h3>Giọt mưa và em bé</h3><p>Khai thác chủ đề mưa, nước và thiên nhiên.</p></div><audio controls preload="none" src="https://www.image2url.com/r2/default/audio/1789377589189-87ec8ad7-c141-484f-a3f4-91367277ad21.mp3"></audio></article>
+          <article class="song-card"><div><h3>Em và chim hoang dã</h3><p>Nuôi dưỡng tình yêu và ý thức bảo vệ các loài chim hoang dã.</p></div><audio controls preload="none" src="https://www.image2url.com/r2/default/audio/1789377790748-9b576536-180a-4418-b34d-89d2d3ecbfa9.mp3"></audio></article>
+          <article class="song-card"><div><h3>Hạt giống xanh</h3><p>Khuyến khích trẻ gieo trồng và chăm sóc cây xanh.</p></div><audio controls preload="none" src="https://www.image2url.com/r2/default/audio/1789377899816-24508a14-b473-4145-a862-b9917ef0a10e.mp3"></audio></article>
+          <article class="song-card"><div><h3>Cá vàng bơi</h3><p>Gợi mở tình yêu với sinh vật dưới nước.</p></div><audio controls preload="none" src="https://www.image2url.com/r2/default/audio/1789378350892-e9b09add-dd24-49fb-bc3d-8e2aad904b6f.mp3"></audio></article>
+          <article class="song-card"><div><h3>Nước trong mãi nhé</h3><p>Nhắc trẻ giữ gìn nguồn nước luôn sạch trong.</p></div><audio controls preload="none" src="https://www.image2url.com/r2/default/audio/1789379399095-4ee85217-1338-4e88-86d2-30a0e37889d4.mp3"></audio></article>
+          <article class="song-card"><div><h3>Bầu trời xanh</h3><p>Cùng trẻ yêu quý và bảo vệ bầu không khí trong lành.</p></div><audio controls preload="none" src="https://www.image2url.com/r2/default/audio/1789379607590-5042665a-2a76-4f71-942f-ff25dc94e830.mp3"></audio></article>
+          <article class="song-card"><div><h3>Giọt nước bé yêu</h3><p>Giáo dục trẻ biết trân trọng và tiết kiệm từng giọt nước.</p></div><audio controls preload="none" src="https://www.image2url.com/r2/default/audio/1789379760896-5b0ab461-f51b-4e0e-a3f2-b8d141a95081.mp3"></audio></article>
+          <article class="song-card"><div><h3>Mỗi ngày thật vui</h3><p>Lan tỏa những thói quen xanh vui vẻ mỗi ngày.</p></div><audio controls preload="none" src="https://www.image2url.com/r2/default/audio/1789379910145-0c674243-a958-45d0-afb0-921ad767c213.mp3"></audio></article>
+        </section>
+      </div>
+    </div>
+
+    <nav class="bottom-nav">
+      <a href="index.html" class="nav-item" data-page="index.html"><span class="nav-icon">🏠</span><span>Trang chủ</span></a>
+      <a href="baihat.html" class="nav-item active" data-page="baihat.html"><span class="nav-icon">📖</span><span>Học</span></a>
+      <div class="nav-item-center" onclick="location.href='troly.html'"><div class="nav-center-circle"><img class="logo-image" src="image/mam2-transparent.png" alt="Logo Mầm"/></div><span>Trợ lý AI</span></div>
+      <a href="trochoi.html" class="nav-item" data-page="trochoi.html"><span class="nav-icon">🧩</span><span>Trò chơi</span></a>
+      <a href="thuvien.html" class="nav-item" data-page="thuvien.html"><span class="nav-icon">📷</span><span>Thư viện</span></a>
+    </nav>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

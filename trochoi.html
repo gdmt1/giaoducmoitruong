@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Trò chơi tương tác | Giáo Dục Môi Trường</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-avatar"><img class="logo-image" src="image/mam2-transparent.png" alt="Logo Mầm"/></div>
+      <div class="sidebar-header-text"><h3>Giáo dục môi trường</h3></div>
+      <button class="sidebar-close" id="sidebarClose">✕</button>
+    </div>
+    <div class="sidebar-menu">
+      <a href="index.html" class="sidebar-item"><div class="si-icon">🏠</div><span class="si-text">Trang chủ</span></a>
+      <a href="dat.html" class="sidebar-item"><div class="si-icon">🌱</div><span class="si-text">Môi trường đất</span></a>
+      <a href="nuoc.html" class="sidebar-item"><div class="si-icon">💧</div><span class="si-text">Môi trường nước</span></a>
+      <a href="khongkhi.html" class="sidebar-item"><div class="si-icon">💨</div><span class="si-text">Môi trường không khí</span></a>
+      <a href="sinhvat.html" class="sidebar-item"><div class="si-icon">🦋</div><span class="si-text">Môi trường sinh vật</span></a>
+      <a href="trochoi.html" class="sidebar-item active"><div class="si-icon">🧩</div><span class="si-text">Trò chơi</span></a>
+      <a href="thuvien.html" class="sidebar-item"><div class="si-icon">📷</div><span class="si-text">Thư viện ảnh</span></a>
+      <a href="baihat.html" class="sidebar-item"><div class="si-icon">🎵</div><span class="si-text">Bài hát</span></a>
+      <a href="phanhoi.html" class="sidebar-item"><div class="si-icon">📝</div><span class="si-text">Phiếu phản hồi</span></a>
+      <button type="button" class="sidebar-item sidebar-logout" id="logoutBtn"><div class="si-icon">🚪</div><span class="si-text">Đăng xuất</span></button>
+    </div>
+    <div class="sidebar-footer">Trường Đại học Hải Phòng</div>
+  </div>
+
+  <div class="app">
+    <div class="topbar">
+      <div class="topbar-left"><button class="btn-icon" id="menuBtn" aria-label="Mở menu">☰</button></div>
+      <div class="topbar-center"><img class="topbar-logo" src="image/mam2-transparent.png" alt="Logo"/> Giáo dục môi trường</div>
+      <div class="topbar-right"></div>
+    </div>
+    <div class="page">
+      <div style="padding:16px 16px 8px;">
+        <p class="greeting">Cùng học mà chơi</p>
+        <h1 class="page-title">Trò chơi tương tác 🧩</h1>
+        <p style="font-size:13px;color:var(--brown-mid);line-height:1.6;margin-top:6px;">Tổng hợp các trò chơi về đất, nước, không khí và sinh vật.</p>
+      </div>
+
+      <div class="px16 mt16 mb8"><p class="section-label">🌱 Môi trường đất</p></div>
+      <div class="game-list">
+        <div class="game-card"><div class="game-icon-box">�</div><div class="game-info"><h4>Mở hộp đoán tên – “Bí mật trong chiếc hộp”</h4><p>Đoán tên và khám phá vật thể, sự vật trong môi trường đất qua trò chơi thú vị.</p></div><a href="https://wordwall.net/resource/110177512" target="_blank" rel="noopener" class="game-btn-go">Chơi</a></div>
+        <div class="game-card"><div class="game-icon-box">✅</div><div class="game-info"><h4>Tìm hành vi đúng với môi trường đất</h4><p>Chọn những hành động bảo vệ môi trường đất và tránh làm ô nhiễm đất.</p></div><a href="https://view.genially.com/69e0e4785c4ec16d89c9f3b9" target="_blank" rel="noopener" class="game-btn-go">Chơi</a></div>
+        <div class="game-card"><div class="game-icon-box">🗑️</div><div class="game-info"><h4>Thu gom rác trên mặt đất</h4><p>Thực hiện nhiệm vụ giữ sạch môi trường đất bằng cách thu gom rác đúng nơi.</p></div><a href="https://view.genially.com/69edc450ee80d8c95d668e87" target="_blank" rel="noopener" class="game-btn-go">Chơi</a></div>
+      </div>
+
+      <div class="px16 mt20 mb8"><p class="section-label">💧 Môi trường nước</p></div>
+      <div class="game-list">
+        <div class="game-card"><div class="game-icon-box">💧</div><div class="game-info"><h4>Nhận biết nguồn nước</h4><p>Nhận biết các nguồn nước trong tự nhiên.</p></div><a href="https://wordwall.net/resource/109951551" target="_blank" rel="noopener" class="game-btn-go">Chơi</a></div>
+        <div class="game-card"><div class="game-icon-box">🚿</div><div class="game-info"><h4>Phân loại nước sạch – nước bẩn</h4><p>Phân biệt nước sạch và nước bẩn.</p></div><a href="https://create.kahoot.it/details/241b687d-dbff-47c0-9975-cabd9f99bb58" target="_blank" rel="noopener" class="game-btn-go">Chơi</a></div>
+        <div class="game-card"><div class="game-icon-box">🚰</div><div class="game-info"><h4>Bé tiết kiệm nước</h4><p>Học cách tiết kiệm nước trong sinh hoạt.</p></div><a href="https://giaoviendoimoi.com/teacher-share/t626e8pvhzafztjk3boerg" target="_blank" rel="noopener" class="game-btn-go">Chơi</a></div>
+        <div class="game-card"><div class="game-icon-box">🔗</div><div class="game-info"><h4>Ghép đôi sạch – bẩn</h4><p>Liên kết hình ảnh với khái niệm sạch và bẩn.</p></div><a href="https://view.genially.com/69f4856e811e639728fd50b6" target="_blank" rel="noopener" class="game-btn-go">Chơi</a></div>
+        <div class="game-card"><div class="game-icon-box">🌊</div><div class="game-info"><h4>Giọt nước sạch</h4><p>Hành trình của giọt nước qua trò chơi.</p></div><a href="https://create.kahoot.it/share/giot-nuoc-sach/eba9bb31-8ad4-4972-9039-dda0dcd73c2f" target="_blank" rel="noopener" class="game-btn-go">Chơi</a></div>
+        <div class="game-card"><div class="game-icon-box">🌊</div><div class="game-info"><h4>Giải cứu dòng sông xanh</h4><p>Cùng tìm hiểu cách bảo vệ dòng sông sạch đẹp.</p></div><a href="https://giaoviendoimoi.com/teacher-share/4imvtlmi3ad3o9kfuv9hl" target="_blank" rel="noopener" class="game-btn-go">Chơi</a></div>
+      </div>
+
+      <div class="px16 mt20 mb8"><p class="section-label">💨 Môi trường không khí</p></div>
+      <div class="game-list">
+        <div class="game-card"><div class="game-icon-box">🌬️</div><div class="game-info"><h4>Không khí sạch hay bẩn?</h4><p>Phân biệt không khí sạch và ô nhiễm.</p></div><a href="https://wordwall.net/resource/110029860" target="_blank" rel="noopener" class="game-btn-go">Chơi</a></div>
+        <div class="game-card"><div class="game-icon-box">🎡</div><div class="game-info"><h4>Hành động đúng hay sai?</h4><p>Khám phá hành động bảo vệ không khí.</p></div><a href="https://wordwall.net/resource/110176368" target="_blank" rel="noopener" class="game-btn-go">Chơi</a></div>
+        <div class="game-card"><div class="game-icon-box">🏭</div><div class="game-info"><h4>Tìm nguồn gây khói bụi</h4><p>Nhận biết nguồn gây ô nhiễm không khí.</p></div><a href="https://view.genially.com/69f46e378a191b94110c1fa7" target="_blank" rel="noopener" class="game-btn-go">Chơi</a></div>
+        <div class="game-card"><div class="game-icon-box">🌦️</div><div class="game-info"><h4>Bí mật của bốn mùa</h4><p>Khám phá những đặc điểm thời tiết và không khí trong bốn mùa.</p></div><a href="https://giaoviendoimoi.com/teacher-share/dk13jtywwr5z39e1hsms6" target="_blank" rel="noopener" class="game-btn-go">Chơi</a></div>
+        <div class="game-card"><div class="game-icon-box">👕</div><div class="game-info"><h4>Bé chọn trang phục phù hợp</h4><p>Chọn trang phục phù hợp với thời tiết và môi trường không khí.</p></div><a href="https://giaoviendoimoi.com/teacher-share/dk13jtywwr5z39e1hsms6" target="_blank" rel="noopener" class="game-btn-go">Chơi</a></div>
+        <div class="game-card"><div class="game-icon-box">🌤️</div><div class="game-info"><h4>Trời này mặc gì?</h4><p>Chọn trang phục phù hợp với thời tiết.</p></div><a href="https://giaoviendoimoi.com/teacher-share/07qjrvzk6zfvabwfkabee9" target="_blank" rel="noopener" class="game-btn-go">Chơi</a></div>
+        <div class="game-card"><div class="game-icon-box">☔</div><div class="game-info"><h4>Vali ngày mưa</h4><p>Chọn những đồ dùng phù hợp khi thời tiết mưa.</p></div><a href="https://view.genially.com/6aa16101d9feaf9efc8c264b" target="_blank" rel="noopener" class="game-btn-go">Chơi</a></div>
+        <div class="game-card"><div class="game-icon-box">🌦️</div><div class="game-info"><h4>Câu đố hiện tượng tự nhiên</h4><p>Nhận biết và tìm hiểu các hiện tượng tự nhiên.</p></div><a href="https://giaoviendoimoi.com/teacher-share/urq12fav7as8bcy4dzklkj" target="_blank" rel="noopener" class="game-btn-go">Chơi</a></div>
+        <div class="game-card"><div class="game-icon-box">🌈</div><div class="game-info"><h4>Khám phá hiện tượng tự nhiên</h4><p>Mở rộng hiểu biết về thời tiết và thiên nhiên.</p></div><a href="https://giaoviendoimoi.com/teacher-share/tzd9paek4hm5tya53eiolj" target="_blank" rel="noopener" class="game-btn-go">Chơi</a></div>
+      </div>
+
+      <div class="px16 mt20 mb8"><p class="section-label">🦋 Môi trường sinh vật</p></div>
+      <div class="game-list">
+        <div class="game-card"><div class="game-icon-box">🐾</div><div class="game-info"><h4>Nhận biết động vật và môi trường sống</h4><p>Nhận biết loài vật và nơi sống.</p></div><a href="https://wordwall.net/resource/109949188" target="_blank" rel="noopener" class="game-btn-go">Chơi</a></div>
+        <div class="game-card"><div class="game-icon-box">🐻</div><div class="game-info"><h4>Hành vi bảo vệ động vật</h4><p>Nhận biết hành vi bảo vệ động vật.</p></div><a href="https://wordwall.net/resource/109950783" target="_blank" rel="noopener" class="game-btn-go">Chơi</a></div>
+        <div class="game-card"><div class="game-icon-box">🏡</div><div class="game-info"><h4>Nhà bạn ở đâu?</h4><p>Ghép đôi sinh vật với môi trường sống.</p></div><a href="https://giaoviendoimoi.com/teacher-share/xud3maq4obfi0hvm3yh6u" target="_blank" rel="noopener" class="game-btn-go">Chơi</a></div>
+        <div class="game-card"><div class="game-icon-box">🌐</div><div class="game-info"><h4>Ai cần ai</h4><p>Khám phá mối quan hệ trong hệ sinh thái.</p></div><a href="https://wordwall.net/vi/resource/112504672" target="_blank" rel="noopener" class="game-btn-go">Chơi</a></div>
+        <div class="game-card"><div class="game-icon-box">🌿</div><div class="game-info"><h4>Bé và thiên nhiên</h4><p>Khám phá thiên nhiên và những người bạn sinh vật quanh bé.</p></div><a href="https://view.genially.com/6aa3ac15ec765bb71120d9f2" target="_blank" rel="noopener" class="game-btn-go">Chơi</a></div>
+        <div class="game-card"><div class="game-icon-box">🌳</div><div class="game-info"><h4>Tìm hiểu về cây xanh</h4><p>Khám phá vai trò và lợi ích của cây xanh.</p></div><a href="https://giaoviendoimoi.com/teacher-share/sxsaaf43hgh8tnj6tsups6" target="_blank" rel="noopener" class="game-btn-go">Chơi</a></div>
+        <div class="game-card"><div class="game-icon-box">🐾</div><div class="game-info"><h4>Tìm hiểu về con vật</h4><p>Nhận biết các loài vật và môi trường sống.</p></div><a href="https://giaoviendoimoi.com/teacher-share/fs3skngqv0gqkfl6oq7rmf" target="_blank" rel="noopener" class="game-btn-go">Chơi</a></div>
+      </div>
+    </div>
+
+    <nav class="bottom-nav">
+      <a href="index.html" class="nav-item" data-page="index.html"><span class="nav-icon">🏠</span><span>Trang chủ</span></a>
+      <a href="dat.html" class="nav-item" data-page="dat.html"><span class="nav-icon">📖</span><span>Học</span></a>
+      <div class="nav-item-center" onclick="location.href='troly.html'"><div class="nav-center-circle"><img class="logo-image" src="image/mam2-transparent.png" alt="Logo Mầm"/></div><span>Trợ lý AI</span></div>
+      <a href="trochoi.html" class="nav-item active" data-page="trochoi.html"><span class="nav-icon">🧩</span><span>Trò chơi</span></a>
+      <a href="thuvien.html" class="nav-item" data-page="thuvien.html"><span class="nav-icon">📷</span><span>Thư viện</span></a>
+    </nav>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

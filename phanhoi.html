@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Phiếu Phản Hồi | Giáo Dục Môi Trường</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-avatar"><img class="logo-image" src="image/mam2-transparent.png" alt="Logo Mầm"/></div>
+      <div class="sidebar-header-text"><h3>Giáo dục môi trường</h3></div>
+      <button class="sidebar-close" id="sidebarClose" aria-label="Đóng menu">✕</button>
+    </div>
+    <div class="sidebar-menu">
+      <a href="index.html" class="sidebar-item"><div class="si-icon">🏠</div><span class="si-text">Trang chủ</span></a>
+      <a href="dat.html" class="sidebar-item"><div class="si-icon">🌱</div><span class="si-text">Môi trường đất</span></a>
+      <a href="nuoc.html" class="sidebar-item"><div class="si-icon">💧</div><span class="si-text">Môi trường nước</span></a>
+      <a href="khongkhi.html" class="sidebar-item"><div class="si-icon">💨</div><span class="si-text">Môi trường không khí</span></a>
+      <a href="sinhvat.html" class="sidebar-item"><div class="si-icon">🦋</div><span class="si-text">Môi trường sinh vật</span></a>
+      <a href="thuvien.html" class="sidebar-item"><div class="si-icon">📷</div><span class="si-text">Thư viện ảnh</span></a>
+      <a href="baihat.html" class="sidebar-item"><div class="si-icon">🎵</div><span class="si-text">Bài hát</span></a>
+      <a href="phanhoi.html" class="sidebar-item active"><div class="si-icon">📝</div><span class="si-text">Phiếu phản hồi</span></a>
+      <button type="button" class="sidebar-item sidebar-logout" id="logoutBtn"><div class="si-icon">🚪</div><span class="si-text">Đăng xuất</span></button>
+    </div>
+    <div class="sidebar-footer">Trường Đại học Hải Phòng</div>
+  </div>
+
+  <div class="app">
+    <div class="topbar">
+      <div class="topbar-left">
+        <button class="btn-icon" id="menuBtn" aria-label="Mở menu">☰</button>
+        <a href="#" class="topbar-back" onclick="goBackToPreviousPage(); return false;">Quay lại</a>
+      </div>
+      <div class="topbar-center"><img class="topbar-logo" src="image/mam2-transparent.png" alt="Logo"/> Giáo dục môi trường</div>
+      <div class="topbar-right"></div>
+    </div>
+
+    <div class="page">
+      <div class="feedback-intro">
+        <h1>📝 Phiếu phản hồi</h1>
+        <p>Ý kiến của bạn giúp chúng mình cải thiện nội dung và trải nghiệm học tập về môi trường.</p>
+      </div>
+      <section class="feedback-login" id="feedbackLogin" aria-labelledby="feedbackLoginTitle">
+        <h2 id="feedbackLoginTitle">Đăng nhập bằng email</h2>
+        <p>Nhập email của bạn để đăng nhập và gửi phản hồi ngay trên trang này.</p>
+        <input class="feedback-field" id="feedbackLoginEmail" type="email" autocomplete="email" placeholder="Nhập email của bạn"/>
+        <button class="feedback-submit" id="feedbackLoginButton" type="button">Đăng nhập</button>
+      </section>
+      <form class="feedback-form" id="feedbackForm" hidden>
+        <div class="feedback-group feedback-email-group" id="feedbackEmailGroup">
+          <label class="feedback-label" for="feedbackEmail">Email của bạn</label>
+          <input class="feedback-field" id="feedbackEmail" name="email" type="email" autocomplete="email" required placeholder="Nhập email để gửi phản hồi"/>
+          <p class="feedback-account-note" id="feedbackAccountNote"></p>
+        </div>
+        <div class="feedback-group">
+          <label class="feedback-label" for="feedbackName">Tên của bạn (không bắt buộc)</label>
+          <input class="feedback-field" id="feedbackName" name="name" type="text" maxlength="50" placeholder="Nhập tên của bạn"/>
+        </div>
+        <div class="feedback-group">
+          <span class="feedback-label">Bạn đánh giá website thế nào?</span>
+          <div class="feedback-rating">
+            <label><input type="radio" name="rating" value="1" required/><span>😟<br/>Chưa tốt</span></label>
+            <label><input type="radio" name="rating" value="2"/><span>🙁<br/>Cần cải thiện</span></label>
+            <label><input type="radio" name="rating" value="3"/><span>🙂<br/>Bình thường</span></label>
+            <label><input type="radio" name="rating" value="4"/><span>😊<br/>Tốt</span></label>
+            <label><input type="radio" name="rating" value="5"/><span>🤩<br/>Rất tốt</span></label>
+          </div>
+        </div>
+        <div class="feedback-group">
+          <label class="feedback-label" for="feedbackMessage">Nội dung góp ý</label>
+          <textarea class="feedback-field" id="feedbackMessage" name="message" rows="5" maxlength="500" required placeholder="Hãy chia sẻ cảm nhận hoặc đề xuất của bạn..."></textarea>
+        </div>
+        <button class="feedback-submit" type="submit">Gửi phản hồi</button>
+        <p class="feedback-status" id="feedbackStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const feedbackForm = document.getElementById('feedbackForm');
+    const feedbackLogin = document.getElementById('feedbackLogin');
+    const feedbackLoginEmail = document.getElementById('feedbackLoginEmail');
+    const feedbackLoginButton = document.getElementById('feedbackLoginButton');
+    const feedbackEmail = document.getElementById('feedbackEmail');
+    const feedbackEmailGroup = document.getElementById('feedbackEmailGroup');
+    const feedbackAccountNote = document.getElementById('feedbackAccountNote');
+    const feedbackStatus = document.getElementById('feedbackStatus');
+    const savedEmail = localStorage.getItem('feedbackEmail');
+
+    const showFeedbackForm = () => {
+      feedbackLogin.hidden = true;
+      feedbackForm.hidden = false;
+    };
+    if (savedEmail) {
+      showFeedbackForm();
+    }
+    feedbackLoginButton.addEventListener('click', () => {
+      const email = feedbackLoginEmail.value.trim().toLowerCase();
+      if (!feedbackLoginEmail.checkValidity()) {
+        feedbackLoginEmail.focus();
+        return;
+      }
+      localStorage.setItem('feedbackEmail', email);
+      showFeedbackForm();
+      feedbackEmail.value = email;
+      feedbackEmailGroup.classList.add('is-signed-in');
+      feedbackAccountNote.textContent = `Tài khoản email: ${email}`;
+    });
+    feedbackLoginEmail.addEventListener('keydown', event => {
+      if (event.key === 'Enter') feedbackLoginButton.click();
+    });
+
+    if (savedEmail) {
+      feedbackEmail.value = savedEmail;
+      feedbackEmailGroup.classList.add('is-signed-in');
+      feedbackAccountNote.textContent = `Tài khoản email: ${savedEmail}`;
+    }
+
+    feedbackForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (!feedbackForm.reportValidity()) return;
+      const email = feedbackEmail.value.trim().toLowerCase();
+      const name = document.getElementById('feedbackName').value.trim() || 'Không cung cấp';
+      const message = document.getElementById('feedbackMessage').value.trim();
+      const rating = document.querySelector('input[name="rating"]:checked');
+      const ratingText = rating ? `${rating.value}/5` : 'Không cung cấp';
+      localStorage.setItem('feedbackEmail', email);
+      feedbackEmailGroup.classList.add('is-signed-in');
+      feedbackAccountNote.textContent = `Tài khoản email: ${email}`;
+      const subject = encodeURIComponent('Phản hồi website Giáo dục môi trường');
+      const body = encodeURIComponent(`Email: ${email}\nTên: ${name}\nĐánh giá: ${ratingText}\n\nNội dung góp ý:\n${message}`);
+      window.location.href = `mailto:Vungoclinhtnhp@gmail.com?subject=${subject}&body=${body}`;
+      feedbackStatus.textContent = 'Đang mở ứng dụng email để gửi phản hồi...';
+    });
+  </script>
+</body>
+</html>
