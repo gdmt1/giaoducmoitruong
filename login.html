@@ -42,14 +42,14 @@ function doLogin() {
   const val = document.getElementById('nameInput').value.trim();
   if (!val) { document.getElementById('nameInput').focus(); return; }
   localStorage.setItem('userName', val);
-  const requestedPage = new URLSearchParams(location.search).get('return');
-  const returnPage = requestedPage === 'phanhoi.html' ? 'phanhoi.html' : 'index.html';
+    const requestedPage = new URLSearchParams(location.search).get('return');
+    const returnPage = requestedPage === 'phanhoi.html' ? 'phanhoi.html' : 'home.html';
   location.href = returnPage;
 }
 function skipLogin() {
   localStorage.removeItem('userName');
   localStorage.removeItem('feedbackEmail');
-  location.href = 'index.html';
+    location.href = 'home.html';
 }
 document.getElementById('nameInput').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
 </script>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Giáo Dục Môi Trường</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    #welcomeScreen {
+      position: fixed; inset: 0; z-index: 999;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(143,207,150,.35), transparent 30%),
+        radial-gradient(circle at 88% 82%, rgba(106,174,114,.2), transparent 32%),
+        linear-gradient(135deg, #e8f8ea 0%, #f6fff6 52%, #dff2e2 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0;
+      min-height: 100dvh;
+      padding: clamp(18px, 4vh, 44px) clamp(18px, 5vw, 72px);
+      width: 100%; max-width: 100%;
+      overflow-y: auto;
+    }
+    #welcomeScreen .w-mascot {
+      width: 100px; height: 100px; border-radius: 50%;
+      background: linear-gradient(135deg, #6aae72, #8fcf96);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 52px; margin-bottom: 22px; object-fit: contain; padding: 10px;
+      box-shadow: 0 8px 28px rgba(200,148,26,0.35);
+    }
+    #welcomeScreen .w-intro-video {
+      width: min(100%, 420px); aspect-ratio: 16 / 9;
+      object-fit: cover; border-radius: 16px; margin: 0 auto 18px;
+      background: #dcefe0; box-shadow: 0 6px 20px rgba(42,112,60,.18);
+    }
+    #welcomeScreen .w-title {
+      font-size: 26px; font-weight: 900; color: #3d2b0e;
+      text-align: center; margin-bottom: 8px; line-height: 1.2;
+    }
+    #welcomeScreen .w-sub {
+      font-size: 14px; color: #7a6340; text-align: center;
+      margin-bottom: 10px; line-height: 1.6;
+    }
+    #welcomeScreen .w-intro {
+      font-size: 13px; color: #7a6340; text-align: center;
+      margin-bottom: 28px; line-height: 1.75; max-width: 320px;
+      padding: 14px 18px;
+      background: rgba(255,255,255,0.7);
+      border-radius: 16px;
+      border: 1px solid rgba(200,148,26,0.15);
+    }
+    #welcomeScreen input {
+      width: min(100%, 520px); padding: 15px 18px; font-family: inherit; font-size: 15px;
+      border: 1.5px solid #e8d9b8; border-radius: 100px;
+      background: #fff; color: #3d2b0e; outline: none;
+      margin-bottom: 12px; transition: .25s;
+    }
+    #welcomeScreen input:focus { border-color: #c8941a; box-shadow: 0 0 0 3px rgba(200,148,26,0.15); }
+    #welcomeScreen input::placeholder { color: #b09060; }
+    #welcomeScreen .w-btn {
+      width: min(100%, 520px); padding: 15px; background: #6aae72; color: #fff;
+      border: none; border-radius: 100px; font-family: inherit;
+      font-size: 16px; font-weight: 800; cursor: pointer;
+      box-shadow: 0 4px 18px rgba(200,148,26,0.4); transition: .25s; margin-bottom: 14px;
+    }
+    #welcomeScreen .w-btn:hover { background: #4f9659; transform: translateY(-2px); }
+    #welcomeScreen .w-skip {
+      font-size: 13px; color: #a08050; text-decoration: underline;
+      cursor: pointer; background: none; border: none; font-family: inherit;
+    }
+    #welcomeScreen .w-skip:hover { color: #c8941a; }
+
+    body.welcome-open { overflow: hidden; }
+
+    .welcome-visual, .welcome-content { width: min(100%, 560px); display:flex; flex-direction:column; align-items:center; }
+    .welcome-visual { gap: clamp(16px, 3vh, 28px); }
+    .welcome-content { gap: 0; }
+    .welcome-social {
+      width: min(100%, 520px); display: grid; grid-template-columns: 1fr 1fr;
+      gap: 10px; margin-top: 18px;
+    }
+    .welcome-social button {
+      padding: 12px 10px; border: 1.5px solid #d6e5d7; border-radius: 100px;
+      background: rgba(255,255,255,.72); color: #78927a;
+      font: 700 13px var(--font); cursor: not-allowed; opacity: .8;
+    }
+    @media (min-width: 900px) {
+      #welcomeScreen { gap: clamp(16px, 3vh, 28px); }
+      .welcome-visual, .welcome-content { width: min(100%, 680px); }
+      #welcomeScreen .w-mascot { width:clamp(150px, 15vw, 220px); height:clamp(150px, 15vw, 220px); }
+      #welcomeScreen .w-intro-video { width:min(100%, 640px); }
+      #welcomeScreen .w-title { font-size:clamp(28px, 3vw, 42px); }
+    }
+
+    @media (max-height: 720px) {
+      #welcomeScreen { justify-content:flex-start; }
+      #welcomeScreen .w-mascot { width: 76px; height: 76px; margin-bottom: 10px; }
+      #welcomeScreen .w-intro-video { max-width: 300px; margin-bottom: 10px; }
+      #welcomeScreen .w-title { font-size: 22px; }
+      #welcomeScreen .w-sub { margin-bottom: 6px; }
+      #welcomeScreen .w-intro { padding: 10px 14px; margin-bottom: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lbClose">✕</button>
+  <img src="" alt="" id="lbImg"/>
+</div>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-avatar"><img class="logo-image" src="image/mam2-transparent.png" alt="Logo Mầm"/></div>
+    <div class="sidebar-header-text">
+      <h3>Giáo dục môi trường</h3>
+    </div>
+    <button class="sidebar-close" id="sidebarClose">✕</button>
+  </div>
+  <div class="sidebar-menu">
+    <a href="home.html" class="sidebar-item active">
+      <div class="si-icon">🏠</div><span class="si-text">Trang chủ</span>
+    </a>
+    <a href="dat.html" class="sidebar-item">
+      <div class="si-icon">🌱</div><span class="si-text">Môi trường đất</span>
+    </a>
+    <a href="nuoc.html" class="sidebar-item">
+      <div class="si-icon">💧</div><span class="si-text">Môi trường nước</span>
+    </a>
+    <a href="khongkhi.html" class="sidebar-item">
+      <div class="si-icon">💨</div><span class="si-text">Môi trường không khí</span>
+    </a>
+    <a href="sinhvat.html" class="sidebar-item">
+      <div class="si-icon">🦋</div><span class="si-text">Môi trường sinh vật</span>
+    </a>
+    <a href="thuvien.html" class="sidebar-item">
+      <div class="si-icon">📷</div><span class="si-text">Thư viện ảnh</span>
+    </a>
+    <a href="baihat.html" class="sidebar-item">
+      <div class="si-icon">🎵</div><span class="si-text">Bài hát</span>
+    </a>
+    <a href="phanhoi.html" class="sidebar-item">
+      <div class="si-icon">📝</div><span class="si-text">Phiếu phản hồi</span>
+    </a>
+    <button type="button" class="sidebar-item sidebar-logout" id="logoutBtn">
+      <div class="si-icon">🚪</div><span class="si-text">Đăng xuất</span>
+    </button>
+  </div>
+</div>
+
+<div class="app">
+  <div class="topbar">
+    <div class="topbar-left">
+      <button class="btn-icon" id="menuBtn" aria-label="Mở menu">☰</button>
+    </div>
+    <div class="topbar-center">
+      <img class="topbar-logo" src="image/mam2-transparent.png" alt="Logo"/>
+      Giáo dục môi trường
+    </div>
+    <div class="topbar-right"></div>
+  </div>
+
+  <div class="page">
+
+    <div class="hero-card">
+      <img src="image/anh1.png" alt="Hoạt động bảo vệ môi trường"/>
+      <div class="hero-card-overlay"></div>
+      <div class="hero-card-text">
+        <h2>Cần bắt đầu từ lứa tuổi Mầm Non</h2>
+      </div>
+    </div>
+
+    <div class="mt16 px16 mb8"><p class="section-label"><img class="section-logo" src="image/mam2-transparent.png" alt=""/> Chọn chủ đề</p></div>
+    <div class="chips-scroll">
+      <a href="dat.html" class="topic-chip" data-topic-title="Môi trường đất" data-topic-icon="🌱" data-topic-description="Đất là nền tảng của sự sống trên cạn. Đất giúp cây cối bén rễ, cung cấp chất dinh dưỡng và là ngôi nhà của rất nhiều loài giun, côn trùng cùng những sinh vật nhỏ bé. Trong hành trình này, chúng ta sẽ cùng quan sát các loại đất, tìm hiểu vai trò của đất đối với cây xanh và nhận biết những việc nên làm để giữ cho đất sạch, tơi xốp và khỏe mạnh. Hãy bắt đầu khám phá thế giới kỳ diệu ngay dưới chân mình!" data-topic-link="dat.html">
+        <span class="tc-icon">🌱</span><span class="tc-name">Môi trường đất</span>
+      </a>
+      <a href="nuoc.html" class="topic-chip" data-topic-title="Môi trường nước" data-topic-icon="💧" data-topic-description="Nước hiện diện trong dòng sông, ao hồ, biển cả, những đám mây và cả trong cơ thể con người, động vật, cây cối. Không có nước, sự sống không thể tồn tại. Khi khám phá chủ đề này, chúng ta sẽ cùng tìm hiểu các nguồn nước trong tự nhiên, phân biệt nước sạch và nước bẩn, nhận biết nguyên nhân gây ô nhiễm nguồn nước và học những việc làm đơn giản để sử dụng, bảo vệ từng giọt nước mỗi ngày. Hãy cùng theo dòng nước bắt đầu hành trình khám phá!" data-topic-link="nuoc.html">
+        <span class="tc-icon">💧</span><span class="tc-name">Môi trường nước</span>
+      </a>
+      <a href="khongkhi.html" class="topic-chip" data-topic-title="Môi trường không khí" data-topic-icon="💨" data-topic-description="Không khí tuy vô hình nhưng luôn ở quanh chúng ta và giúp con người, động vật, cây cối hô hấp. Không khí sạch mang lại sức khỏe và cảm giác dễ chịu, còn khói bụi, khí thải và rác đốt bừa bãi có thể làm môi trường trở nên ô nhiễm. Hãy cùng quan sát những dấu hiệu của không khí sạch và không khí bẩn, tìm hiểu các nguồn gây ô nhiễm và khám phá những hành động xanh để bảo vệ bầu không khí trong lành cho mọi người." data-topic-link="khongkhi.html">
+        <span class="tc-icon">💨</span><span class="tc-name">Môi trường không khí</span>
+      </a>
+      <a href="sinhvat.html" class="topic-chip" data-topic-title="Môi trường sinh vật" data-topic-icon="🦋" data-topic-description="Xung quanh chúng ta là một thế giới sinh vật vô cùng đa dạng, từ cây cỏ, côn trùng đến các loài chim, cá và thú. Mỗi loài đều có nơi sống, thức ăn và vai trò riêng trong tự nhiên; các loài cũng liên kết với nhau để tạo nên một hệ sinh thái cân bằng. Trong chủ đề này, chúng ta sẽ cùng nhận biết các loài vật, tìm hiểu môi trường sống của chúng và suy nghĩ về những hành động thiết thực để yêu thương, bảo vệ các sinh vật quanh mình." data-topic-link="sinhvat.html">
+        <span class="tc-icon">🦋</span><span class="tc-name">Môi trường sinh vật</span>
+      </a>
+    </div>
+
+    <div class="mt20 px16 mb8"><p class="section-label">📚 Khám phá theo loại</p></div>
+    <div class="two-col">
+      <a href="trochoi.html" class="feature-card feature-games">
+        <span class="fc-icon">🧩</span>
+        <span class="fc-title">Trò chơi</span>
+        <span class="fc-sub">15+ trò chơi tương tác</span>
+      </a>
+      <a href="thuvien.html" class="feature-card feature-gallery">
+        <span class="fc-icon">📷</span>
+        <span class="fc-title">Thư viện ảnh</span>
+        <span class="fc-sub">66 hình ảnh chọn lọc</span>
+      </a>
+    </div>
+
+    <div class="mt20 px16 mb8"><p class="section-label">📷 Hình ảnh hoạt động</p></div>
+    <div class="gallery-grid">
+      <img src="https://giaoducmoitruong.my.canva.site/_assets/media/b87e0e5ca4d32e1f33418d8b4bd4d88d.jpg" alt="Hoạt động 1" loading="lazy"/>
+      <img src="https://giaoducmoitruong.my.canva.site/_assets/media/d4d0e4973c8ed09799a71f854ffe155d.jpg" alt="Hoạt động 2" loading="lazy"/>
+      <img src="https://giaoducmoitruong.my.canva.site/_assets/media/992a9fe2032af9f2eceb2370952fd93b.jpg" alt="Hoạt động 3" loading="lazy"/>
+      <img src="https://giaoducmoitruong.my.canva.site/_assets/media/a9ed3dcb706674497160f3230035e223.jpg" alt="Hoạt động 4" loading="lazy"/>
+    </div>
+    <div class="mt12 px16 gallery-more">
+      <a href="thuvien.html" class="gallery-more-link">Xem tất cả ảnh</a>
+    </div>
+
+    <div class="page-spacer"></div>
+
+  </div>
+
+  <div class="topic-intro" id="topicIntro" role="dialog" aria-modal="true" aria-labelledby="topicIntroTitle" aria-hidden="true">
+    <div class="topic-intro-card">
+      <button class="topic-intro-close" id="topicIntroClose" type="button" aria-label="Đóng">✕</button>
+      <div class="topic-intro-icon" id="topicIntroIcon"></div>
+      <p class="topic-intro-label">Cùng khám phá</p>
+      <h2 id="topicIntroTitle"></h2>
+      <p id="topicIntroDescription"></p>
+      <a id="topicIntroLink" class="topic-intro-button" href="#">Vào khám phá <span>→</span></a>
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <a href="home.html" class="nav-item active" data-page="home.html">
+      <span class="nav-icon">🏠</span><span>Trang chủ</span>
+    </a>
+    <a href="dat.html" class="nav-item" data-page="dat.html">
+      <span class="nav-icon">📖</span><span>Học</span>
+    </a>
+    <div class="nav-item-center" onclick="location.href='troly.html'">
+      <div class="nav-center-circle"><img class="logo-image" src="image/mam2-transparent.png" alt="Logo Mầm"/></div>
+      <span>Trợ lý AI</span>
+    </div>
+    <a href="trochoi.html" class="nav-item" data-page="trochoi.html">
+      <span class="nav-icon">🧩</span><span>Trò chơi</span>
+    </a>
+    <a href="thuvien.html" class="nav-item" data-page="thuvien.html">
+      <span class="nav-icon">📷</span><span>Thư viện</span>
+    </a>
+  </nav>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

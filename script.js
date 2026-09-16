@@ -3,7 +3,7 @@ function goBackToPreviousPage() {
     history.back();
     return;
   }
-  window.location.href = 'index.html';
+    window.location.href = 'home.html';
 }
 
 function initSidebar() {
@@ -19,7 +19,7 @@ function initSidebar() {
     const menuGroups = [
       {
         label: 'Trang chính',
-        items: [['index.html', '🏠', 'Trang chủ']]
+          items: [['home.html', '🏠', 'Trang chủ']]
       },
       {
         label: 'Chủ đề môi trường',
@@ -83,12 +83,12 @@ function initSidebar() {
 }
 
 function initBottomNav() {
-  const path = location.pathname.split('/').pop() || 'index.html';
+    const path = location.pathname.split('/').pop() || 'home.html';
   const nav = document.querySelector('.bottom-nav');
   if (!nav) return;
 
   const items = [
-    { href: 'index.html', icon: '🏠', label: 'Trang chủ', type: 'link' },
+    { href: 'home.html', icon: '🏠', label: 'Trang chủ', type: 'link' },
     { href: 'dat.html', icon: '📖', label: 'Học', type: 'link' },
     { href: 'troly.html', icon: '📷', label: 'Trợ lý AI', type: 'center' },
     { href: 'trochoi.html', icon: '🧩', label: 'Trò chơi', type: 'link' },
@@ -272,9 +272,9 @@ function initAssistant() {
 
 function initSpiritBeast() {
   if (document.querySelector('.spirit-beast')) return;
-  const page = location.pathname.split('/').pop() || 'index.html';
+  const page = location.pathname.split('/').pop() || 'home.html';
   const pageMessages = {
-    'index.html': [
+    'home.html': [
       'Xin chào! Mình là Mầm, cùng mình khám phá thiên nhiên nhé!',
       'Hôm nay mình cùng khám phá điều gì nhỉ?',
       'Mỗi chiếc lá, giọt nước và chú bướm đều có một câu chuyện đó!'
@@ -315,7 +315,7 @@ function initSpiritBeast() {
       'Mỗi lời góp ý nhỏ đều rất đáng quý, cảm ơn bạn nhiều!'
     ]
   };
-  const messages = pageMessages[page] || pageMessages['index.html'];
+  const messages = pageMessages[page] || pageMessages['home.html'];
   const beast = document.createElement('img');
   beast.className = 'spirit-beast';
   beast.src = 'image/mam3.png';
