@@ -218,16 +218,24 @@ function initAssistant() {
       role: item.role,
       parts: [{ text: item.text }]
     }));
-    const response = await fetch('https://mam-api.vercel.app/api/chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents
-      })
-    });
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.error?.message || 'Không thể kết nối với Gemini.');
-    return data.candidates?.[0]?.content?.parts?.[0]?.text || 'Mình chưa có câu trả lời phù hợp.';
+    for (let attempt = 0; attempt < 2; attempt += 1) {
+      const response = await fetch('https://mam-api.vercel.app/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ contents })
+      });
+      const data = await response.json();
+      if (response.ok) {
+        return data.candidates?.[0]?.content?.parts?.[0]?.text || 'Mình chưa có câu trả lời phù hợp.';
+      }
+      if (![429, 503].includes(response.status) || attempt === 1) {
+        const error = new Error(data.error?.message || 'Không thể kết nối với Gemini.');
+        error.status = response.status;
+        throw error;
+      }
+      if (status) status.textContent = 'Mầm đang thử kết nối lại...';
+      await new Promise(resolve => setTimeout(resolve, 1200));
+    }
   };
 
   const submitQuestion = async question => {
@@ -245,8 +253,11 @@ function initAssistant() {
       history.push({ role: 'model', text: answer });
       if (status) status.textContent = 'Mầm AI đang trực tuyến';
     } catch (error) {
-      addMessage(error.message, 'bot');
-      if (status) status.textContent = 'Chưa kết nối được Mầm AI';
+      const message = [429, 503].includes(error.status)
+        ? 'Mầm đang được nhiều bạn sử dụng. Bạn chờ một chút rồi thử lại nhé.'
+        : error.message;
+      addMessage(message, 'bot');
+      if (status) status.textContent = 'Mầm AI tạm thời quá tải';
     } finally {
       input.disabled = false;
       form.classList.remove('is-loading');
