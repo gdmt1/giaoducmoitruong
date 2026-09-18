@@ -244,6 +244,7 @@ function initAssistant() {
     input.value = '';
     input.disabled = true;
     form.classList.add('is-loading');
+    if (status) status.textContent = 'Mầm đang soạn câu trả lời...';
     addMessage(cleanQuestion, 'user');
     history.push({ role: 'user', text: cleanQuestion });
     if (suggestions) suggestions.hidden = true;
